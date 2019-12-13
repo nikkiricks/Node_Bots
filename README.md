@@ -2,7 +2,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
 
 # Exploring the world of nodebots
 
-![](image/led-scene-0.gif)
+![](images/led-scene-0.gif)
 
 ## The Tech Inspiration
 
