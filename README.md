@@ -1,8 +1,10 @@
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
+
 # Exploring the world of nodebots
 
-## The Tech Inspiration
+![](image/led-scene-0.gif)
 
-linking [I'm an inline-style link](https://www.google.com)
+## The Tech Inspiration
 
 I was listening to the [Code Newbie Podcast](https://www.codenewbie.org/podcast) episode about [node bots](https://www.codenewbie.org/podcast/how-do-you-build-a-robot-in-javascript) with [Rachel White](http://rachelisaweso.me/) and was inspired as she was saying how simple it was to start building robots if you knew javascript. Which was felt accessible to me at the time because it was the first programming language that I had first picked up when learning how to code.
 
@@ -58,21 +60,22 @@ _By the way, Sloane wanted “kiwi’s”._
 - GPS tracking possibly using a [Hologram SIM card](https://hologram.io/store/)
 - Attach an [LCD display](https://www.arduino.cc/en/Tutorial/HelloWorld) so I can send messages back
 
-## How to start project
+## How to start a NodeBot project
 
+Install [node-gyp](https://github.com/nodejs/node-gyp) which "is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js.
+`npm install -g node-gyp`
+
+Make a directory
 Create a node project
 `node init`
 
 Install the Johnny-Five dependency
 `npm install johnny-five`
 
-Install node-gyp
-`npm install -g node-gyp`
-
 Create a new file
 `touch blink.js`
 
-Copy and paste into your blink.js file
+Copy and paste the following into your blink.js file:
 
 ```
 var five = require("johnny-five");
@@ -84,4 +87,9 @@ board.on("ready", function() {
 });
 ```
 
-Insert the longer end of your led into "GND" (which is short for ground) and the shorter end into "13".
+Insert the longer end of your led light into "GND" (which is short for ground) and the shorter end into "13".
+
+Plug the arduino into the computer using the USB.
+
+Then in the terminal:
+`node blink.js`
