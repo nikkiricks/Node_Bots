@@ -1,0 +1,26 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "Create and testing nodebots to eventually create a node phone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikkiricks/Node_Bots.git"
+  },
+  "keywords": [
+    "nodebots",
+    "nodephone"
+  ],
+  "author": "nikkiricks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikkiricks/Node_Bots/issues"
+  },
+  "homepage": "https://github.com/nikkiricks/Node_Bots#readme",
+  "dependencies": {
+    "johnny-five": "^1.3.1"
+  }
+}
