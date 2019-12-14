@@ -62,7 +62,12 @@ _By the way, Sloane wanted “kiwi’s”._
 
 ## How to start a NodeBot project
 
-Install [node-gyp](https://github.com/nodejs/node-gyp) which "is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js.
+Go to the [Johnn-Five website](http://johnny-five.io/). And follow their "Hello World!" steps. Step 2, setup your board, was tricky for me. I first went to this site that they refer you to([Firmata Arduino Github](https://github.com/firmata/arduino)) but found this page on Instructables to download [Standard Firmata](https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/
+http://firmata.org/wiki/Main_Page) the screenshots easier to follow.
+
+I also ran into issues with my OS not allowing me to install the test from an unidentified developer, so this site was helpful on unlocking me security settings. [How to install programs from unidentified developers](https://kb.wisc.edu/25443)
+
+Install [node-gyp](https://github.com/nodejs/node-gyp) which "is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js."
 `npm install -g node-gyp`
 
 Make a directory
@@ -78,18 +83,26 @@ Create a new file
 Copy and paste the following into your blink.js file:
 
 ```
-var five = require("johnny-five");
-var board = new five.Board();
+const {Board, Led} = require("johnny-five");
+const board = new Board();
 
-board.on("ready", function() {
-  var led = new five.Led(13);
+board.on("ready", () => {
+  const led = new Led(13);
   led.blink(500);
 });
 ```
 
-Insert the longer end of your led light into "GND" (which is short for ground) and the shorter end into "13".
+Insert the shorter end of your led light into "GND" (which is short for ground) and the longer end into "13".
 
 Plug the arduino into the computer using the USB.
 
 Then in the terminal:
 `node blink.js`
+
+### Resources
+
+- [npm keypress](https://www.npmjs.com/package/keypress) is helpful to use your keyboard as a controller. For example in the [Servo Continuous tutorial](http://johnny-five.io/examples/servo-continuous/) you require keypress and use the the up and down arrows, space bar, and q to control the servo.
+
+### Hiccups
+
+- GSM was going to cost $70 and then $70 to ship to get here with just 3 days to code on it which I didn't feel comfortable with. So I decided to get a Wifi Shield instead and try and code on it that way

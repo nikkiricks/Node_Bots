@@ -1,8 +1,13 @@
-var five = require("johnny-five");
-var board = new five.Board();
+const {Board, Led} = require("johnny-five");
+const board = new Board();
 
-board.on("ready", function() {
-  var led = new five.Led(13);
-  led.blink(500);
+board.on("ready", () => {
+  const led = new Led(13);
+  led.blink(1000);
 });
 
+// var serialport = require("serialport");
+// serialport.list(function(err, ports) {
+//     console.log(ports);
+
+// });
