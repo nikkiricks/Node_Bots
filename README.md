@@ -156,15 +156,19 @@ board.on("ready", function() {
 
 ![](images/final_setup.gif)
 
-### Resources
+## How to hook up to wifi
+
+- I used the [GitHub ESP8266](https://github.com/esp8266/Arduino) directions. I thought this [youtube video](https://www.youtube.com/watch?time_continue=39&v=Q6NBnPfPhWE&feature=emb_logo) was helpful in knowing where to click.
+
+## Resources
 
 - [npm keypress](https://www.npmjs.com/package/keypress) is helpful to use your keyboard as a controller. For example in the [Servo Continuous tutorial](http://johnny-five.io/examples/servo-continuous/) you require keypress and use the the up and down arrows, space bar, and q to control the servo.
 
 * https://www.instructables.com/id/Send-SMS-from-Arduino-over-the-Internet-using-ENC2/
 
-### Challenges
+## Challenges
 
 - GSM was going to cost $70 and then $70 to ship to get here with just 3 days to code on it which I didn't feel comfortable with. So I decided to get a Wifi Shield instead and try and code on it that way
 
 * Running into issues with Twilio - Australia has regulation issues with signing up for an account that could take up to 3 days
-  -Then tried using [TouchSMS](https://platform.touchsms.com.au/register) but they require you to sign up manually by emailing someone.
+  -Then tried using [TouchSMS](https://platform.touchsms.com.au/register) but they require you to sign up manually by emailing their support team? No thanks.
