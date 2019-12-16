@@ -99,10 +99,70 @@ Plug the arduino into the computer using the USB.
 Then in the terminal:
 `node blink.js`
 
+## How to send an email in a push of a button (as in an button)
+
+- Sign up for [Send Grid](https://sendgrid.com/solutions/email-api/) and get an API key. I found the [github instructions](https://github.com/sendgrid/sendgrid-nodejs/tree/master/packages/mail) really helpful.
+
+- Use the Johnny-Five docs and set up a [button](http://johnny-five.io/examples/button/)
+
+- Read [these instructions](https://sendgrid.com/blog/how-to-send-email-with-arduino-at-ny-tech-meetup/) from Swift at SendGrid.
+
+- Here's the code that I used to send two different emails from two different buttons:
+
+```
+var arduino = require("johnny-five")
+var board = new arduino.Board()
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+board.on("ready", function() {
+  var buttonTwo = new arduino.Button(2); // Button on pin 2
+  var buttonFour = new arduino.Button(4)
+
+  buttonTwo.on("up", function() {
+    const msg = {
+      to: 'ENTER_EMAIL,
+      from: 'ENTER_EMAIL(can't be the same)',
+      subject: 'ENTER SUBJECT',
+      text: 'testing testing testing',
+      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
+    };
+    sgMail.send(msg);
+    console.log(msg)
+  });
+
+  buttonFour.on("up", function() {
+    const msg = {
+      to: 'ENTER_EMAIL',
+      from: 'ENTER_EMAIL',
+      subject: 'ENTER SUBJECT',
+      text: 'testing testing testing',
+      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
+    };
+    sgMail.send(msg);
+    console.log(msg)
+  });
+});
+```
+
+- Here's how I set up my board:
+
+![](images/board_setup_left.JPG)
+![](images/board_setup_right.JPG)
+
+- Demo of the setup
+
+![](images/final_setup.gif)
+
 ### Resources
 
 - [npm keypress](https://www.npmjs.com/package/keypress) is helpful to use your keyboard as a controller. For example in the [Servo Continuous tutorial](http://johnny-five.io/examples/servo-continuous/) you require keypress and use the the up and down arrows, space bar, and q to control the servo.
 
-### Hiccups
+* https://www.instructables.com/id/Send-SMS-from-Arduino-over-the-Internet-using-ENC2/
+
+### Challenges
 
 - GSM was going to cost $70 and then $70 to ship to get here with just 3 days to code on it which I didn't feel comfortable with. So I decided to get a Wifi Shield instead and try and code on it that way
+
+* Running into issues with Twilio - Australia has regulation issues with signing up for an account that could take up to 3 days
+  -Then tried using [TouchSMS](https://platform.touchsms.com.au/register) but they require you to sign up manually by emailing someone.
