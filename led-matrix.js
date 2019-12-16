@@ -15,12 +15,12 @@ board.on("ready", function() {
   ];
 
   var smile = [
-    "00111100",
-    "01000010",
-    "10101001",
-    "10010001",
-    "11000101",
-    "10111001",
+    "00000000",
+    "00100100",
+    "00100100",
+    "00100100",
+    "00000000",
+    "10000001",
     "01000010",
     "00111100"
   ];
@@ -35,7 +35,7 @@ board.on("ready", function() {
 
   matrix.on();
 
-  var msg = "NOW".split("");
+  var msg = "NOW!".split("");
 
   // Display each letter for 1 second
   function next() {
@@ -60,7 +60,7 @@ board.on("ready", function() {
 
   this.repl.inject({
     matrix: matrix,
-    // Type "heart()" in the REPL to
+    // Type "smile()" in the REPL to
     // display a heart!
     smile: function() {
       matrix.draw(smile);
