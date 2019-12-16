@@ -62,6 +62,8 @@ _By the way, Sloane wanted “kiwi’s”._
 
 ## How to start a NodeBot project
 
+Download the [Arduino IDE](https://www.arduino.cc/en/main/software)
+
 Go to the [Johnn-Five website](http://johnny-five.io/). And follow their "Hello World!" steps. Step 2, setup your board, was tricky for me. I first went to this site that they refer you to([Firmata Arduino Github](https://github.com/firmata/arduino)) but found this page on Instructables to download [Standard Firmata](https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/
 http://firmata.org/wiki/Main_Page) the screenshots easier to follow.
 

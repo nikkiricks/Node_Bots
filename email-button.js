@@ -25,9 +25,9 @@ board.on("ready", function() {
     const msg = {
       to: 'nikki.ricks@gmail.com',
       from: 'hey@feminest.co',
-      subject: '🙁',
+      subject: '😢 ',
       text: 'testing testing testing',
-      html: '<strong>🙁 Please come home!🙁</strong>',
+      html: '<strong>😢 Please come home!😢</strong>',
     };
     sgMail.send(msg);
     console.log(msg)
