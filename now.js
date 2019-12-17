@@ -30,11 +30,7 @@ board.on("ready", function() {
     } else if (key.name === "up") {
       console.log("CW");
       servo.cw();
-  // insert code for matrix-led
-  // insert conditional statement, if servo tapped up
-  // wait X amount of seconds, then print on matrix "NOW!"
-  // else if servo is tapped down
-  // return to resting position
+
       var matrix = new five.Led.Matrix({
         pins: {
           data: 2,
@@ -47,13 +43,13 @@ board.on("ready", function() {
     
       var msg = " NOW".split("");
     
-      // Display each letter for 1 second
+      // Display each letter for 2 seconds
       function next() {
         var c;
     
         if (c = msg.shift()) {
           matrix.draw(c);
-          setTimeout(next, 1500);
+          setTimeout(next, 2000);
         }
       }
     
