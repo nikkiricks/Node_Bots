@@ -11,7 +11,8 @@ board.on("ready", function() {
 
   buttonTwo.on("up", function() {
     const msg = {
-      to: '61488611347@e2s.messagemedia.com',
+      // to: '61488611347@e2s.messagemedia.com',
+      to: 'hey@feminest.co',
       from: 'nikki.ricks@gmail.com',
       subject: '🙂',
       text: 'I am having a great time, no need to come home!🙂',
@@ -23,7 +24,8 @@ board.on("ready", function() {
 
   buttonFour.on("up", function() {
     const msg = {
-      to: '61488611347@e2s.messagemedia.com',
+      // to: '61488611347@e2s.messagemedia.com',
+      to: 'hey@feminest.co',
       from: 'nikki.ricks@gmail.com',
       subject: '😢',
       text: 'Please come home!😢',
