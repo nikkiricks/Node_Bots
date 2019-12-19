@@ -4,17 +4,17 @@
 
 ## The Tech Inspiration
 
-I was listening to the [Code Newbie Podcast](https://www.codenewbie.org/podcast) episode about [node bots](https://www.codenewbie.org/podcast/how-do-you-build-a-robot-in-javascript) with [Rachel White](http://rachelisaweso.me/) and was inspired as she was saying how simple it was to start building robots if you knew javascript. Which was felt accessible to me at the time because it was the first programming language that I had first picked up when learning how to code.
+I was listening to the [Code Newbie Podcast](https://www.codenewbie.org/podcast) episode about [node bots](https://www.codenewbie.org/podcast/how-do-you-build-a-robot-in-javascript) with [Rachel White](http://rachelisaweso.me/) and was inspired as she was saying how simple it was to start building robots if you were familiar with javascript. Which felt accessible to me at the time because it was the first programming language that I picked up when learning how to code.
 
 ## The Real Life Inspiration
 
-One day, when leaving my daughters with a new babysitter, my oldest, who was 6 at the time was really nervous about it and didn’t want us to go. Before the babysitter came, I told her that we could create a secret password to pass through the babysitter without him knowing. I said that we could tell the babysitter that my partner and I were going to go grocery shopping and my daughter was going to think about the type of fruit she was wanting us pick up. But the secret password was, that if she was having a really hard time and needed us to come home she could tell the babysitter to text us saying she wanted “bananas” (a fruit my daughter doesn’t like) but if she was having a great time and didn’t need us to come home she could text us and say she wanted “kiwi” (one of my daughters favorite fruit).
+One day, when leaving my kids with a new babysitter, my oldest, who was 6 at the time was really nervous about it and didn’t want us to go. Before the babysitter came, I told her that we could create a secret password to pass through the babysitter without him knowing. I said that we could tell the babysitter that my partner and I were going to go grocery shopping and my daughter was going to think about the type of fruit she was wanting us pick up. But the secret password was, that if she was having a really hard time and needed us to come home she could tell the babysitter to text us saying she wanted “bananas” (a fruit my daughter doesn’t like) but if she was having a great time and didn’t need us to come home she could text us and say she wanted “kiwi” (one of my daughters favorite fruit).
 
 Bad time = “bananas” Good time = “kiwi”
 
 ## How tech and life came together
 
-This interaction inspired me to think, what if I could have left my daughter with some kind of a device so that she could text me with an emoji how she was doing as opposed to going through the babysitter? Maybe the two options could be :smiley: or :cry:?
+This interaction inspired me to think, what if I could have left my daughter with a simple device that could text me an emoji how she was feeling as opposed to going through the babysitter? Maybe the two options could be :smiley: or :cry:?
 
 So the idea of the **Sloane Phone** was born.
 
@@ -99,7 +99,68 @@ Plug the arduino into the computer using the USB.
 Then in the terminal:
 `node blink.js`
 
+## How to send an email in a push of a button (as in an actual button)
+
+Sign up for [Send Grid](https://sendgrid.com/solutions/email-api/) and get an API key. I found the [github instructions](https://github.com/sendgrid/sendgrid-nodejs/tree/master/packages/mail) really helpful.
+
+Use the Johnny-Five docs and set up a [button](http://johnny-five.io/examples/button/)
+
+Read [these instructions](https://sendgrid.com/blog/how-to-send-email-with-arduino-at-ny-tech-meetup/) from Swift at SendGrid.
+
+Here's the code that I used in my `email-button.js` to send two different emails from two different buttons:
+
+```
+var arduino = require("johnny-five")
+var board = new arduino.Board()
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+board.on("ready", function() {
+  var buttonTwo = new arduino.Button(2); // Button on pin 2
+  var buttonFour = new arduino.Button(4)
+
+  buttonTwo.on("up", function() {
+    const msg = {
+      to: 'ENTER_EMAIL,
+      from: 'ENTER_EMAIL(can't be the same)',
+      subject: 'ENTER SUBJECT',
+      text: 'testing testing testing',
+      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
+    };
+    sgMail.send(msg);
+    console.log(msg)
+  });
+
+  buttonFour.on("up", function() {
+    const msg = {
+      to: 'ENTER_EMAIL',
+      from: 'ENTER_EMAIL',
+      subject: 'ENTER SUBJECT',
+      text: 'testing testing testing',
+      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
+    };
+    sgMail.send(msg);
+    console.log(msg)
+  });
+});
+```
+
+Here's how I set up my board:
+
+![](images/board_setup_left.JPG)
+![](images/board_setup_right.JPG)
+
+Demo of the setup
+
+![](images/final_setup.gif)
+
+## How to hook up to wifi
+
+I used the [GitHub ESP8266](https://github.com/esp8266/Arduino) directions. I thought this [youtube video](https://www.youtube.com/watch?time_continue=39&v=Q6NBnPfPhWE&feature=emb_logo) was helpful in knowing where to click.
+
 ## How to make a button controlled servo with a led-matrix condition
+
+![](images/now.gif)
 
 Familiarize yourself with the Johnny-Five [servo docs](http://johnny-five.io/examples/servo/) and the [led-matrix docs](http://johnny-five.io/examples/led-matrix/).
 
@@ -107,7 +168,9 @@ The led-matrix was a bit tricky for me to set up. I needed to buy one with the [
 
 With the base understanding of ground and volt, I wired both the servo and matrix through a breadboard:
 
-I then took the code from the led-matrix docs and added it to the "up-button" condition statement:
+![](images/now_wiring.gif)
+
+I then took the code from the led-matrix docs and added it to the "up-button" condition statement in the `now.js` file:
 
 ```
 //for servo
@@ -177,77 +240,20 @@ board.on("ready", function() {
 })
 ```
 
-## How to send an email in a push of a button (as in an actual button)
+## Challenges
 
-Sign up for [Send Grid](https://sendgrid.com/solutions/email-api/) and get an API key. I found the [github instructions](https://github.com/sendgrid/sendgrid-nodejs/tree/master/packages/mail) really helpful.
+- **Hardware** was both fun and frustrating. It was interesting to research the kit I purchased and see what I could do with all of the pieces but frustrating when I would purchase a piece and then needed something else to go along with it.
 
-Use the Johnny-Five docs and set up a [button](http://johnny-five.io/examples/button/)
+  - GSM was going to cost $70 and then $70 to ship to get here with just 3 days to code on it which I didn't feel comfortable with. So I decided to get a Wifi Shield instead and try and code on it that way
+  - I was waiting on an NodeMCU and didn't end up getting it in time to implement into the project
+  - To use the vibrate method like I considered above I would need to buy a [vibration motor](https://www.sparkfun.com/products/8449), it's only \$2 but I didn't have the time to wait for it.
 
-Read [these instructions](https://sendgrid.com/blog/how-to-send-email-with-arduino-at-ny-tech-meetup/) from Swift at SendGrid.
-
-Here's the code that I used to send two different emails from two different buttons:
-
-```
-var arduino = require("johnny-five")
-var board = new arduino.Board()
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-board.on("ready", function() {
-  var buttonTwo = new arduino.Button(2); // Button on pin 2
-  var buttonFour = new arduino.Button(4)
-
-  buttonTwo.on("up", function() {
-    const msg = {
-      to: 'ENTER_EMAIL,
-      from: 'ENTER_EMAIL(can't be the same)',
-      subject: 'ENTER SUBJECT',
-      text: 'testing testing testing',
-      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
-    };
-    sgMail.send(msg);
-    console.log(msg)
-  });
-
-  buttonFour.on("up", function() {
-    const msg = {
-      to: 'ENTER_EMAIL',
-      from: 'ENTER_EMAIL',
-      subject: 'ENTER SUBJECT',
-      text: 'testing testing testing',
-      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
-    };
-    sgMail.send(msg);
-    console.log(msg)
-  });
-});
-```
-
-Here's how I set up my board:
-
-![](images/board_setup_left.JPG)
-![](images/board_setup_right.JPG)
-
-Demo of the setup
-
-![](images/final_setup.gif)
-
-## How to hook up to wifi
-
-I used the [GitHub ESP8266](https://github.com/esp8266/Arduino) directions. I thought this [youtube video](https://www.youtube.com/watch?time_continue=39&v=Q6NBnPfPhWE&feature=emb_logo) was helpful in knowing where to click.
+- **SMS** Running into issues with Twilio - Australia has regulation issues with signing up for an account that could take up to 3 days. Because I'm an American and have no Australian documentation I wasn't verified.
+  -Then tried using [TouchSMS](https://platform.touchsms.com.au/register) but they require you to sign up manually by emailing their support team? No thanks.
+  -Finally I heard about [MessageMedia](https://hub.messagemedia.com/) where you can easily send a text using an email address if the number you're trying to text is "+610577355263" you could just add it to "@e2s.messagemedia.com" so it would be "610577355263@e2s.messagemedia.com". So easy!
 
 ## Resources
 
 - [npm keypress](https://www.npmjs.com/package/keypress) is helpful to use your keyboard as a controller. For example in the [Servo Continuous tutorial](http://johnny-five.io/examples/servo-continuous/) you require keypress and use the the up and down arrows, space bar, and q to control the servo.
 
-- https://www.instructables.com/id/Send-SMS-from-Arduino-over-the-Internet-using-ENC2/
-
-## Challenges
-
-- Hardware was both fun and frustrating. It was interesting to research the kit I purchased and see what I could do with all of the pieces but frustrating when I would purchase a piece and then needed something else to go along with it.
-
-  - GSM was going to cost $70 and then $70 to ship to get here with just 3 days to code on it which I didn't feel comfortable with. So I decided to get a Wifi Shield instead and try and code on it that way
-  - To use the vibrate method like I considered above I would need to buy a [vibration motor](https://www.sparkfun.com/products/8449), it's only \$2 but I didn't have the time to wait for it.
-
-- Running into issues with Twilio - Australia has regulation issues with signing up for an account that could take up to 3 days
-  -Then tried using [TouchSMS](https://platform.touchsms.com.au/register) but they require you to sign up manually by emailing their support team? No thanks.
+- Sending SMS from Arduino over internet on [instructables](https://www.instructables.com/id/Send-SMS-from-Arduino-over-the-Internet-using-ENC2/)

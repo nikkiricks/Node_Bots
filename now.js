@@ -9,6 +9,8 @@ var five = require("johnny-five");
 // var board = new five.Board();
 
 board.on("ready", function() {
+
+
   // insert code for servo
   console.log("Use Up and Down arrows for CW and CCW respectively. Space to stop.");
 
@@ -30,7 +32,7 @@ board.on("ready", function() {
     } else if (key.name === "up") {
       console.log("CW");
       servo.cw();
-
+      // code for matrix-led
       var matrix = new five.Led.Matrix({
         pins: {
           data: 2,
@@ -40,20 +42,20 @@ board.on("ready", function() {
       });
     
       matrix.on();
+
+      var msg = "NOW ".split("");
     
-      var msg = " NOW".split("");
-    
-      // Display each letter for 2 seconds
       function next() {
         var c;
-    
+        
         if (c = msg.shift()) {
           matrix.draw(c);
-          setTimeout(next, 2000);
+          // Display each letter for 1.5 seconds
+          setTimeout(next, 1500);
         }
       }
-    
       next();
+
     } else if (key.name === "down") {
       console.log("CCW");
       servo.ccw();

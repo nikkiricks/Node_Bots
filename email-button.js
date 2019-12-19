@@ -1,5 +1,5 @@
 //http://johnny-five.io/examples/button/
-
+require('dotenv').config()
 var arduino = require("johnny-five")
 var board = new arduino.Board()
 const sgMail = require('@sendgrid/mail');
@@ -11,10 +11,10 @@ board.on("ready", function() {
 
   buttonTwo.on("up", function() {
     const msg = {
-      to: 'nikki.ricks@gmail.com',
-      from: 'hey@feminest.co',
+      to: '61488611347@e2s.messagemedia.com',
+      from: 'nikki.ricks@gmail.com',
       subject: '🙂',
-      text: 'testing testing testing',
+      text: 'I am having a great time, no need to come home!🙂',
       html: '<strong>🙂I am having a great time, no need to come home!🙂</strong>',
     };
     sgMail.send(msg);
@@ -23,10 +23,10 @@ board.on("ready", function() {
 
   buttonFour.on("up", function() {
     const msg = {
-      to: 'nikki.ricks@gmail.com',
-      from: 'hey@feminest.co',
+      to: '61488611347@e2s.messagemedia.com',
+      from: 'nikki.ricks@gmail.com',
       subject: '😢',
-      text: 'testing testing testing',
+      text: 'Please come home!😢',
       html: '<strong>😢 Please come home!😢</strong>',
     };
     sgMail.send(msg);
