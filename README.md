@@ -168,7 +168,7 @@ The led-matrix was a bit tricky for me to set up. I needed to buy one with the [
 
 With the base understanding of ground and volt, I wired both the servo and matrix through a breadboard:
 
-![](images/now_wiring.gif)
+![](images/now_wiring.JPG)
 
 I then took the code from the led-matrix docs and added it to the "up-button" condition statement in the `now.js` file:
 
