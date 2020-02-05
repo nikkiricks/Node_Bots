@@ -43,7 +43,7 @@ board.on("ready", function() {
     
       matrix.on();
 
-      var msg = "NOW ".split("");
+      var msg = " NOW ".split("");
     
       function next() {
         var c;
