@@ -2,29 +2,19 @@
 
 ![](images/led-scene-0.gif)
 
-## The Tech Inspiration
+This repo is for those who are interested in getting started with NodeBots and don't know where to go. I'm here for you. 🤗 I've included the hardware you'll need, website links, and files to get you going.
 
-I was listening to the [Code Newbie Podcast](https://www.codenewbie.org/podcast) episode about [node bots](https://www.codenewbie.org/podcast/how-do-you-build-a-robot-in-javascript) with [Rachel White](http://rachelisaweso.me/) and was inspired as she was saying how simple it was to start building robots if you were familiar with javascript. Which felt accessible to me at the time because it was the first programming language that I picked up when learning how to code.
+## Hardware List
 
-## The Real Life Inspiration
-
-One day, when leaving my kids with a new babysitter, my oldest, who was 6 at the time was really nervous about it and didn’t want us to go. Before the babysitter came, I told her that we could create a secret password to pass through the babysitter without him knowing. I said that we could tell the babysitter that my partner and I were going to go grocery shopping and my daughter was going to think about the type of fruit she was wanting us pick up. But the secret password was, that if she was having a really hard time and needed us to come home she could tell the babysitter to text us saying she wanted “bananas” (a fruit my daughter doesn’t like) but if she was having a great time and didn’t need us to come home she could text us and say she wanted “kiwi” (one of my daughters favorite fruit).
-
-Bad time = “bananas” Good time = “kiwi”
-
-## How tech and life came together
-
-This interaction inspired me to think, what if I could have left my daughter with a simple device that could text me an emoji how she was feeling as opposed to going through the babysitter? Maybe the two options could be :smiley: or :cry:?
-
-So the idea of the **Sloane Phone** was born.
-
-_By the way, Sloane wanted “kiwi’s”._
-
-## Project Plan
+| Part                 | Source                                                                                                                                                                                                                          | Price |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----: |
+| Arduino Uno Board    | [Arduino Website](https://store.arduino.cc/usa/arduino-uno-rev3)                                                                                                                                                                |  \$22 |
+| Freenove Starter Kit | [Freenove Starter Kit](https://www.amazon.com.au/Freenove-Processing-Oscilloscope-Voltmeter-Components/dp/B0721B8228/ref=sr_1_1?keywords=freenove+arduino+uno+starter+kit&qid=1576150765&s=electronics&sr=1-1)                  |  \$34 |
+| MAX7219              | [Core Electronics](https://core-electronics.com.au/max7219-serial-dot-matrix-display-module.html?utm_source=google_shopping&gclid=Cj0KCQiA89zvBRDoARIsAOIePbAXJEz5XoxHO6AphZslLSmZa0pKvgWOEl_RVlhKaETziobAFN6c6OoaAh0bEALw_wcB) |  \$10 |
 
 ### Experience so far:
 
-- I purchased an [Arduino Uno](https://store.arduino.cc/usa/arduino-uno-rev3) ($22) board online, and after realizing I had no way to plug it into my computer also bought a [Freenove Starter Kit](https://www.amazon.com.au/Freenove-Processing-Oscilloscope-Voltmeter-Components/dp/B0721B8228/ref=sr_1_1?keywords=freenove+arduino+uno+starter+kit&qid=1576150765&s=electronics&sr=1-1) ($34) as well.
+- I purchased an [Arduino Website](https://store.arduino.cc/usa/arduino-uno-rev3) board online, and after realizing I had no way to plug it into my computer also bought a [Freenove Starter Kit](https://www.amazon.com.au/Freenove-Processing-Oscilloscope-Voltmeter-Components/dp/B0721B8228/ref=sr_1_1?keywords=freenove+arduino+uno+starter+kit&qid=1576150765&s=electronics&sr=1-1) (\$34) as well.
 - I familiarized myself with [Arduino Uno projects](https://electronicsforu.com/arduino-projects-ideas) to see what’s [possible](https://howtomechatronics.com/arduino-projects/) in [general](https://circuitdigest.com/arduino-projects).
 - I googled some youtube video’s on how to connect a board and make it into a phone
 - I attended a saturday’s hackers session at [Connected Community Hackerspace](https://www.hackmelbourne.org/) where I learned the basics of [Ohm’s Law](https://en.wikipedia.org/wiki/Ohm%27s_law) (electricity) and saw people building and driving around machine learning car robots.
@@ -38,31 +28,11 @@ _By the way, Sloane wanted “kiwi’s”._
 - I was also referred to [Node-Ardx](http://node-ardx.org/) as a place for node.bot newbies to start from people at Hackerspace Melbourne.
 - Figure out all the hardware I need and what I need to purchase, I believe I need a [GSM](https://www.arduino.cc/en/Guide/ArduinoGSMShield) (\$40 (and this hobby is starting to get expensive))
 
-### Schedule:
-
-- Day 1
-  - Set up node.js using the Johnny5 tutorials, configure any necessary settings
-    - Use the [getting started wiki](https://github.com/rwaldron/johnny-five/wiki/Getting-Started)
-  - Do the first couple of exercises from [Node-Ardx](http://node-ardx.org/) site
-- Day 2
-  - Do a couple more tutorials and more research on the phone to figure out what direction I would go next - if a phone would be too hard or if I needed to do something on a smaller scale, for example, working with a button controlled servo that could turn and say “did you indent?”
-- Day 3
-  - Build
-- Day 4
-  - If I haven’t done so already, write my own code (instead of finding other library code) on the project to use javascript with functions, looping, and conditional statements. Research things like “[navigator.vibrate(200)](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate)” to see if phone commands could possibly work and why or why not?
-- Day 5
-  - Prepare to present. Possibly on this day work on the “ux” of the hardware design to make it a bit more sleek - or decide if I want to create a client side interface
-
-### Bonus Features:
-
-- GPS tracking possibly using a [Hologram SIM card](https://hologram.io/store/)
-- Attach an [LCD display](https://www.arduino.cc/en/Tutorial/HelloWorld) so I can send messages back
-
 ## How to start a NodeBot project
 
 Download the [Arduino IDE](https://www.arduino.cc/en/main/software)
 
-Go to the [Johnn-Five website](http://johnny-five.io/). And follow their "Hello World!" steps. Step 2, setup your board, was tricky for me. I first went to this site that they refer you to([Firmata Arduino Github](https://github.com/firmata/arduino)) but found this page on Instructables to download [Standard Firmata](https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/
+Go to the [Johnn-Five website](http://johnny-five.io/). And follow their "Hello World!" steps. Step 2, setup your board, was tricky for me. I first went to this site that they refer you to([Firmata Arduino Github](https://github.com/firmata/arduino)) but found this page on Instructables to download [Standard-Firmata](https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/
 http://firmata.org/wiki/Main_Page) the screenshots easier to follow.
 
 I also ran into issues with my OS not allowing me to install the test from an unidentified developer, so this site was helpful on unlocking me security settings. [How to install programs from unidentified developers](https://kb.wisc.edu/25443)
@@ -71,13 +41,14 @@ Install [node-gyp](https://github.com/nodejs/node-gyp) which "is a cross-platfor
 `npm install -g node-gyp`
 
 Make a directory
-Create a node project
+
+Create a node project  
 `node init`
 
-Install the Johnny-Five dependency
+Install the Johnny-Five dependency  
 `npm install johnny-five`
 
-Create a new file
+Create a new file  
 `touch blink.js`
 
 Copy and paste the following into your blink.js file:
@@ -92,71 +63,12 @@ board.on("ready", () => {
 });
 ```
 
-Insert the shorter end of your led light into "GND" (which is short for ground) and the longer end into "13".
+Insert the shorter end of your led light into "GND" (short for ground) and the longer end into "13".
 
 Plug the arduino into the computer using the USB.
 
-Then in the terminal:
+Then in the terminal:  
 `node blink.js`
-
-## How to send an email in a push of a button (as in an actual button)
-
-Sign up for [Send Grid](https://sendgrid.com/solutions/email-api/) and get an API key. I found the [github instructions](https://github.com/sendgrid/sendgrid-nodejs/tree/master/packages/mail) really helpful.
-
-Use the Johnny-Five docs and set up a [button](http://johnny-five.io/examples/button/)
-
-Read [these instructions](https://sendgrid.com/blog/how-to-send-email-with-arduino-at-ny-tech-meetup/) from Swift at SendGrid.
-
-Here's the code that I used in my `email-button.js` to send two different emails from two different buttons:
-
-```
-var arduino = require("johnny-five")
-var board = new arduino.Board()
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-board.on("ready", function() {
-  var buttonTwo = new arduino.Button(2); // Button on pin 2
-  var buttonFour = new arduino.Button(4)
-
-  buttonTwo.on("up", function() {
-    const msg = {
-      to: 'ENTER_EMAIL,
-      from: 'ENTER_EMAIL(can't be the same)',
-      subject: 'ENTER SUBJECT',
-      text: 'testing testing testing',
-      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
-    };
-    sgMail.send(msg);
-    console.log(msg)
-  });
-
-  buttonFour.on("up", function() {
-    const msg = {
-      to: 'ENTER_EMAIL',
-      from: 'ENTER_EMAIL',
-      subject: 'ENTER SUBJECT',
-      text: 'testing testing testing',
-      html: '<strong>ENTER TEXT FOR BODY OF THE EMAIL</strong>',
-    };
-    sgMail.send(msg);
-    console.log(msg)
-  });
-});
-```
-
-Here's how I set up my board:
-
-![](images/board_setup_left.JPG)
-![](images/board_setup_right.JPG)
-
-Demo of the setup
-
-![](images/final_setup.gif)
-
-## How to hook up to wifi
-
-I used the [GitHub ESP8266](https://github.com/esp8266/Arduino) directions. I thought this [youtube video](https://www.youtube.com/watch?time_continue=39&v=Q6NBnPfPhWE&feature=emb_logo) was helpful in knowing where to click.
 
 ## How to make a button controlled servo with a led-matrix condition
 
@@ -240,20 +152,16 @@ board.on("ready", function() {
 })
 ```
 
-## Challenges
+## Links to more advanced projects
 
-- **Hardware** was both fun and frustrating. It was interesting to research the kit I purchased and see what I could do with all of the pieces but frustrating when I would purchase a piece and then needed something else to go along with it.
-
-  - GSM was going to cost $70 and then $70 to ship to get here with just 3 days to code on it which I didn't feel comfortable with. So I decided to get a Wifi Shield instead and try and code on it that way
-  - I was waiting on an NodeMCU and didn't end up getting it in time to implement into the project
-  - To use the vibrate method like I considered above I would need to buy a [vibration motor](https://www.sparkfun.com/products/8449), it's only \$2 but I didn't have the time to wait for it.
-
-- **SMS** Running into issues with Twilio - Australia has regulation issues with signing up for an account that could take up to 3 days. Because I'm an American and have no Australian documentation I wasn't verified.
-  -Then tried using [TouchSMS](https://platform.touchsms.com.au/register) but they require you to sign up manually by emailing their support team? No thanks.
-  -Finally I heard about [MessageMedia](https://hub.messagemedia.com/) where you can easily send a text using an email address if the number you're trying to text is "+610577355263" you could just add it to "@e2s.messagemedia.com" so it would be "610577355263@e2s.messagemedia.com". So easy!
+- [Sloane Phone NodeBot Repo](https://github.com/nikkiricks/Sloane-Phone-Node)
+- [Sloane Phone C++ Repo](https://github.com/nikkiricks/Sloane-Phone-Arduino)
 
 ## Resources
 
 - [npm keypress](https://www.npmjs.com/package/keypress) is helpful to use your keyboard as a controller. For example in the [Servo Continuous tutorial](http://johnny-five.io/examples/servo-continuous/) you require keypress and use the the up and down arrows, space bar, and q to control the servo.
 
 - Sending SMS from Arduino over internet on [instructables](https://www.instructables.com/id/Send-SMS-from-Arduino-over-the-Internet-using-ENC2/)
+
+- Set up node.js using the Johnny5 tutorials, configure any necessary settings
+  - Use the [getting started wiki](https://github.com/rwaldron/johnny-five/wiki/Getting-Started)
