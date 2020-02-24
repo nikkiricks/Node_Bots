@@ -2,7 +2,7 @@
 
 ![](images/led-scene-0.gif)
 
-This repo is for those who are interested in getting started with NodeBots and don't know where to go. I'm here for you. 🤗 I've included the hardware you'll need, website links, and files to get you going.
+This repo is for those who are interested in getting started with NodeBots and don't know where to go. I'm here for you. 🤗 I've included the hardware I used, website links, and files to get you going.
 
 ## Hardware List
 
@@ -30,6 +30,20 @@ This repo is for those who are interested in getting started with NodeBots and d
 
 ## How to start a NodeBot project
 
+### Node Setup
+
+If you don't have Node installed, go to the [Node.js](https://nodejs.org/en/) site and grab the latest version.
+
+Once you've gotten Node installed, the next step differs depending on if you're using Mac OS or Windows.
+
+### Hardware Setup
+
+Insert the shorter end of your led light into "GND" (short for ground) and the longer end into "13".
+
+Plug the arduino into the computer using the USB.
+
+### Firmware Setup
+
 Download the [Arduino IDE](https://www.arduino.cc/en/main/software)
 
 Go to the [Johnn-Five website](http://johnny-five.io/). And follow their "Hello World!" steps. Step 2, setup your board, was tricky for me. I first went to this site that they refer you to([Firmata Arduino Github](https://github.com/firmata/arduino)) but found this page on Instructables to download [Standard-Firmata](https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/
@@ -48,24 +62,14 @@ Create a node project
 Install the Johnny-Five dependency  
 `npm install johnny-five`
 
-Create a new file  
-`touch blink.js`
+Clone this repo into your directory of choice by typing the following:
+`git clone git@github.com:nikkiricks/Node_Bots.git`
 
-Copy and paste the following into your blink.js file:
+Navigate into the folder, you're going to have to install your dependencies.  
+`npm install`
 
-```
-const {Board, Led} = require("johnny-five");
-const board = new Board();
-
-board.on("ready", () => {
-  const led = new Led(13);
-  led.blink(500);
-});
-```
-
-Insert the shorter end of your led light into "GND" (short for ground) and the longer end into "13".
-
-Plug the arduino into the computer using the USB.
+In your CLI type:  
+`node blink.js`
 
 Then in the terminal:  
 `node blink.js`
