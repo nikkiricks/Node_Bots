@@ -65,8 +65,8 @@ Navigate into the folder, you're going to have to install your dependencies.
 In your CLI type:  
 `node blink.js`
 
-Then in the terminal:  
-`node blink.js`
+And watch that light blink!
+Congrats! 🎉
 
 For other projects see the practice_files and reference the fritzing images on the [Johnny-Five Examples pages](http://johnny-five.io/examples/)
 
