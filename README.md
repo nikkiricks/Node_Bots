@@ -25,15 +25,13 @@ This repo is for those who are interested in getting started with NodeBots and d
 
 ### Node Setup
 
+In your terminal, type `node -v` to check if you have Node installed. If you do, it will return the version number. If not, it will say something like "command not found".
+
 If you don't have Node installed, go to the [Node.js](https://nodejs.org/en/) site and grab the latest version.
 
-Once you've gotten Node installed, the next step differs depending on if you're using Mac OS or Windows.
+### OS Setup
 
-### Hardware Setup
-
-Insert the shorter end of your led light into "GND" (short for ground) and the longer end into "13".
-
-Plug the arduino into the computer using the USB.
+The reset of the instructions are for Mac OS, but if you're using Windows, you can follow the [Johnny-Five Windows Setup](http://johnny-five.io/guide/windows-setup/) instructions.
 
 ### Firmware Setup
 
@@ -41,10 +39,16 @@ Download the [Arduino IDE](https://www.arduino.cc/en/main/software)
 
 Go to the [Johnn-Five website](http://johnny-five.io/). And follow their "Hello World!" steps. Step 2, setup your board, was tricky for me. I first went to this site that they refer you to([Firmata Arduino Github](https://github.com/firmata/arduino)) but found this page on Instructables to download [Standard-Firmata](https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/) the screenshots easier to follow.
 
-I also ran into issues with my OS not allowing me to install the test from an unidentified developer, so this site was helpful on unlocking me security settings. [How to install programs from unidentified developers](https://kb.wisc.edu/25443)
+I also ran into issues with my OS not allowing me to install the test from an unidentified developer, so this site was helpful on unlocking my security settings. [How to install programs from unidentified developers](https://kb.wisc.edu/25443)
 
 Install [node-gyp](https://github.com/nodejs/node-gyp) which "is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js."
 `npm install -g node-gyp`
+
+### Hardware Setup
+
+Insert the shorter end of your led light into "GND" (short for ground) and the longer end into "13".
+
+Plug the arduino into the computer using the USB.
 
 ### Software Setup
 
@@ -69,6 +73,8 @@ And watch that light blink!
 Congrats! 🎉
 
 For other projects see the practice_files and reference the fritzing images on the [Johnny-Five Examples pages](http://johnny-five.io/examples/)
+
+
 
 ## How to make a button controlled servo with a led-matrix condition
 
